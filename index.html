@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+
+  <div class="topnav">
+    <a href="#home">Home</a>
+    <a class="active" href="#todo">To-Do</a>
+    <a href="#news">Time Blocks</a>
+    <a href="#contact">Pomodoro Clock</a>
+    <a href="#about">Mobile Apps</a>
+    <a href="#about">About Me</a>
+  </div>
+
+<div class="business">
+<a href="http://productiveambition.com/">Productive Ambition</a>
+
+<br>
+<p class="site-description">Stay Moving </p>
+</div>
+
+<div id="myDIV" class="header">
+  <h1>To-Do List</h1>
+  <input type="text" id="myInput" placeholder="Get it done">
+  <span onclick="addItem()" class="addBtn">Add</span>
+</div>
+
+<ul id="myUL" class="list">
+</ul>
+
+<script>
+var i;
+var myNodelist = document.getElementsByTagName("LI");
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("x");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+
+function addItem() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("x");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+
+var close = document.getElementsByClassName("close");
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+var data = document.querySelector('ul');
+data.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+</script>
+
+</body>
+</html>
